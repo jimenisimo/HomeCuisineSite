@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">Add Dish</div>
+    <div class="panel-body">
+      <form class="form" method="post" ng-submit="addDish()" name="addForm">
+
+        <div class="form-group" ng-class="{ 'has-error' : addForm.type.$invalid && addForm.type.$dirty }">
+          <label class="control-label">Dish Type</label>
+          <input class="form-control" type="text" name="type" ng-model="type" placeholder="Enter Dish type" required autofocus>
+          <div class="help-block text-danger" ng-if="addForm.type.$dirty" ng-messages="addForm.type.$error">
+            <div ng-message="required">Dish type is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : addForm.title.$invalid && addForm.title.$dirty }">
+          <label class="control-label">Dish Title</label>
+          <input class="form-control" type="text" name="title" ng-model="title" placeholder="Enter Dish name" required autofocus>
+          <div class="help-block text-danger" ng-if="addForm.title.$dirty" ng-messages="addForm.title.$error">
+            <div ng-message="required">Dish name is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : addForm.description.$invalid && addForm.description.$dirty }">
+          <label class="control-label">Dish Description</label>
+          <input class="form-control" type="text" name="description" ng-model="description" placeholder="Enter Dish Description" required autofocus>
+          <div class="help-block text-danger" ng-if="addForm.description.$dirty" ng-messages="addForm.description.$error">
+            <div ng-message="required">Dish description is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : addForm.photo.$invalid && addForm.photo.$dirty }">
+          <label class="control-label">Dish Photo</label>
+          <input class="form-control" type="text" name="photo" ng-model="photo" placeholder="Photo URL" required autofocus>
+          <div class="help-block text-danger" ng-if="addForm.photo.$dirty" ng-messages="addForm.photo.$error">
+            <div ng-message="required">Photo URL is required.</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" ng-disabled="addForm.$invalid">Add</button>
+      </form>
+    </div>
+  </div>
+</div>

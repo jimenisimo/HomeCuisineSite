@@ -1,0 +1,38 @@
+<div class="jumbotron">
+    <div class="container">
+        <ul class="alphabet">
+            <li ng-repeat="char in alphabet">
+                <span ng-click="filterByAlphabet(char)">{{char}}</span>
+            </li>
+        </ul>
+        <ul class="genres">
+            <li ng-repeat="type in types">
+                <span ng-click="filterByType(type)">{{type}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{headingTitle}}
+            <div class="pull-right">
+                <input class="search" type="text" ng-model="query.title" placeholder="Search...">
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row show-list">
+                <div class="fade-repeat col-xs-4 col-md-3" ng-repeat="dish in dishes | filter:query | orderBy:'rating':true">
+                    <a href="/shows/{{dish.title}}">
+                        <img class="img-rounded" ng-src="{{dish.photo}}" width="100%"/>
+                    </a>
+                    <div class="text-center">
+                        <a href="/shows/{{dish.title}}">{{dish.title}}</a>
+                        <p class="text-muted">Description: {{dish.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
